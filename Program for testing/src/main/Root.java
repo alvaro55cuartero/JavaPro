@@ -1,38 +1,44 @@
 package main;
 
-import java.awt.Graphics;
-
-import control.Raton;
-import control.Teclado;
+import musica.MenuMusic;
 import musica.Music;
-import program.Program;
+import program.Plot;
+import program.Pro;
 
 public class Root {
 
-	Program program;
-	Music m;
-	// Plot plot;
+	private static Program program;
 
-	public Root(Raton raton, Teclado teclado) {
-		// program = new Program(raton, teclado);
-		m = new Music();
-
-		// plot = new Plot(100, 400);
+	public Root() {
+		switch (Const.program) {
+		case 0:
+			program = new Pro();
+			break;
+		case 1:
+			program = new Music();
+			break;
+		case 2:
+			program = new Plot(100, 400);
+			break;
+		case 3:
+			program = new MenuMusic();
+			break;
+		}
 	}
 
-	public void tick(Raton raton, Teclado teclado) {
-		m.tick(raton, teclado);
-		// program.tick(raton, teclado);
-		// plot.tick(raton, teclado);
+	public void start() {
+		program.start();
 	}
 
-	public void render(Graphics g) {
-		m.render(g);
-		// program.render(g);
-		// plot.render(g);
+	public void tick() {
+		program.tick();
 	}
 
-	public void stop() {
-		// program.stop();
+	public void render() {
+		program.render();
+	}
+
+	public void dispose() {
+		program.dispose();
 	}
 }

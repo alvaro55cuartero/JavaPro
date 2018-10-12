@@ -3,74 +3,46 @@ package main;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 
-import control.Raton;
-import control.Teclado;
-import program.Program;
+public class Lienzo {
 
-public class Lienzo extends Canvas{
+	private static BufferStrategy bs;
+	private static Canvas canvas;
+	private static int ancho;
+	private static int alto;
 
-	Graphics g;
-	BufferStrategy bs;
-	
-	Root root;
-	
-	int ancho;
-	int alto;
-	
-	Raton raton;
-	Teclado teclado;
-	
-	public Lienzo(int ancho, int alto) {
-		this.ancho = ancho;
-		this.alto = alto;
+	public static void start(int ancho, int alto) {
+		Lienzo.ancho = ancho;
+		Lienzo.alto = alto;
+		canvas = new Canvas();
 
-		raton = new Raton(this);
-		teclado = new Teclado();
-
-		this.setIgnoreRepaint(true);
-		this.setPreferredSize(new Dimension(ancho, alto));
-		this.addMouseListener(raton);
-		this.addKeyListener(teclado);
-		this.setFocusable(true);
-		this.requestFocus();
-		
-		root = new Root(raton, teclado);
-		
+		canvas.setIgnoreRepaint(true);
+		canvas.setPreferredSize(new Dimension(ancho, alto));
+		canvas.addMouseListener(Main.raton);
+		canvas.addKeyListener(Main.teclado);
+		canvas.setFocusable(true);
+		canvas.requestFocus();
 	}
-	
-	public void tick() {
-		raton.tick(this);
-		root.tick(raton, teclado);
-		raton.resetClick();
-		teclado.clear();
-		
-	}
-	
-	public void render() {
-		bs =  getBufferStrategy();
-		if(bs == null) {
-			createBufferStrategy(3);
-			return;
+
+	public static void renderStart() {
+		if (bs == null) {
+			Lienzo.canvas.createBufferStrategy(3);
+			bs = Lienzo.canvas.getBufferStrategy();
 		}
-		
-		g = bs.getDrawGraphics();
-		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, Const.Width, Const.Height);
-		
-		raton.render(g);
-		
-		root.render(g);
-		
+		Main.g = bs.getDrawGraphics();
+		Main.g.setColor(Color.BLACK);
+		Main.g.fillRect(0, 0, ancho, alto);
+	}
+
+	public static void renderEnd() {
 		Toolkit.getDefaultToolkit().sync();
-		g.dispose();
+		Main.g.dispose();
 		bs.show();
 	}
-	
-	public void stop() {
-		root.stop();
+
+	public static Canvas getCanvas() {
+		return canvas;
 	}
 }

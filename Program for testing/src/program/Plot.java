@@ -4,12 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.geom.Point2D;
 
-import control.Raton;
-import control.Teclado;
 import main.Const;
+import main.Program;
 import tools.Tools;
 
-public class Plot {
+public class Plot extends Program {
 
 	int x;
 	int y;
@@ -30,22 +29,11 @@ public class Plot {
 
 	}
 
-	private void print(int[] sin) {
-		for (int i = 0; i < sin.length; i++) {
-			System.out.println(sin[i]);
-		}
+	public void start() {
+
 	}
 
-	public int[] suma(int[] a, int[] b) {
-		int[] r = new int[a.length];
-		for (int i = 0; i < a.length; i++) {
-			r[i] = (a[i] + b[i]);
-		}
-		return r;
-	}
-
-	public void tick(Raton raton, Teclado teclado) {
-
+	public void tick() {
 		if (Tools.inside(raton.getPD(), new Point2D.Double(x - 5, y - 5), new Point2D.Double(10, 10))) {
 			bool = true;
 		} else {
@@ -57,7 +45,7 @@ public class Plot {
 		}
 	}
 
-	public void render(Graphics g) {
+	public void render() {
 		g.setColor(Color.GREEN);
 		g.drawLine(x, 0, x, Const.Height);
 		g.drawLine(0, y, Const.Width, y);
@@ -82,5 +70,23 @@ public class Plot {
 		for (int i = 0; i < vertex.length - 1; i++) {
 			g.drawLine(x + i, y + vertex[i], x + i + 1, y + vertex[i + 1]);
 		}
+	}
+
+	public void dispose() {
+
+	}
+
+	private void print(int[] sin) {
+		for (int i = 0; i < sin.length; i++) {
+			System.out.println(sin[i]);
+		}
+	}
+
+	public int[] suma(int[] a, int[] b) {
+		int[] r = new int[a.length];
+		for (int i = 0; i < a.length; i++) {
+			r[i] = (a[i] + b[i]);
+		}
+		return r;
 	}
 }

@@ -56,7 +56,6 @@ public class Tipo {
 	}
 
 	public void render(Graphics2D g) {
-
 		for (int i = 0; i < shape.length; i++) {
 			g.setColor(Color.red);
 			if (shape[i] != null) {
@@ -111,7 +110,7 @@ public class Tipo {
 		String[] linea = txt.split("\\;");
 		for (int i = 0; i < linea.length; i++) {
 			String[] frase = linea[i].split(" ");
-			if (Program.isPrimitivo(frase[0]) || Program.isTipo(frase[0])) {
+			if (Pro.isPrimitivo(frase[0]) || Pro.isTipo(frase[0])) {
 				c++;
 			}
 		}
@@ -121,7 +120,7 @@ public class Tipo {
 		c = 0;
 		for (int i = 0; i < linea.length; i++) {
 			String[] frase = linea[i].split(" ");
-			if (Program.isPrimitivo(frase[0]) || Program.isTipo(frase[0])) {
+			if (Pro.isPrimitivo(frase[0]) || Pro.isTipo(frase[0])) {
 				line[c] = linea[i];
 				c++;
 				text = text.replaceFirst(linea[i] + ";", "");
@@ -216,10 +215,10 @@ public class Tipo {
 		for (int i = 0; i < linea.length; i++) {
 			String[] frase = linea[i].split(" ");
 
-			if (Program.isPrimitivo(frase[0])) {
+			if (Pro.isPrimitivo(frase[0])) {
 				var[c] = primitiva(frase[0], frase[1]);
 				c++;
-			} else if (Program.isTipo(frase[0])) {
+			} else if (Pro.isTipo(frase[0])) {
 				var[c] = tipo(frase[0], frase[1]);
 				c++;
 			} else {
@@ -230,11 +229,11 @@ public class Tipo {
 
 	private Var tipo(String a, String b) {
 		Object o = null;
-		Var[] x = Program.tipos.get(Program.findTipo(a)).var;
+		Var[] x = Pro.tipos.get(Pro.findTipo(a)).var;
 		Var[] y = new Var[x.length];
 		int c = 0;
 		for (int i = 0; i < x.length; i++) {
-			if (Program.isPrimitivo(x[i].tipo)) {
+			if (Pro.isPrimitivo(x[i].tipo)) {
 				y[c] = primitiva(x[i].tipo, x[i].name);
 				c++;
 			} else {
@@ -317,8 +316,8 @@ public class Tipo {
 		for (int i = 0; i < linea.length; i++) {
 			String[] frase = linea[i].split(" ");
 			if (frase[0].matches("in")) {
-				if (!Program.isTipo(frase[1])) {
-					Program.tipos.add(new Tipo(frase[1]));
+				if (!Pro.isTipo(frase[1])) {
+					Pro.tipos.add(new Tipo(frase[1]));
 				}
 				text = text.replaceFirst(linea[i] + ";", "");
 			}

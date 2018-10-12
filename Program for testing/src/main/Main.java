@@ -1,41 +1,50 @@
 package main;
 
-import org.lwjgl.glfw.GLFW;
+import java.awt.Graphics;
+
+import control.Raton;
+import control.Teclado;
 
 public class Main {
 
-	Ventana ventana;
-	String string;
+	public static Raton raton;
+	public static Teclado teclado;
+	public static Graphics g;
+	Root root;
 
 	public void loop() {
 		start();
-
 		while (Const.Loop) {
 			tick();
 			render();
 		}
-
 		dispose();
-
 	}
 
 	private void start() {
-		GLFW.glfwInit();
+		raton = new Raton();
+		teclado = new Teclado();
 
-		ventana = new Ventana();
+		Ventana.start();
+		Lienzo.start(640, 480);
+		Ventana.getFrame().add(Lienzo.getCanvas());
+		root = new Root();
+		root.start();
 	}
 
 	private void tick() {
-
+		raton.tick(Lienzo.getCanvas());
+		root.tick();
 	}
 
 	private void render() {
-
+		Lienzo.renderStart();
+		root.render();
+		Lienzo.renderEnd();
 	}
 
 	private void dispose() {
-
-		GLFW.glfwTerminate();
+		root.dispose();
 	}
 
 	public static void main(String[] args) {

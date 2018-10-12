@@ -20,14 +20,13 @@ public class Raton extends MouseAdapter {
 
 	Canvas canvas;
 
-	public Raton(Canvas canvas) {
-		posicion(canvas);
+	public Raton() {
 		click = false;
 	}
 
 	public void tick(final Canvas canvas) {
+		resetClick();
 		posicion(canvas);
-
 	}
 
 	public void render(Graphics g) {

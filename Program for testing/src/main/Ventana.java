@@ -4,20 +4,19 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
-import org.lwjgl.glfw.GLFW;
+public class Ventana {
+	private static JFrame frame;
 
-public class Ventana extends JFrame {
-
-	public Ventana(Lienzo lienzo) {
-		this.setTitle(Const.Name);
-		this.setSize(Const.Width, Const.Height);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.add(lienzo);
-		this.setBackground(Color.BLACK);
-		this.setVisible(true);
+	public static void start() {
+		frame = new JFrame();
+		frame.setTitle(Const.Name);
+		frame.setSize(Const.Width, Const.Height);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBackground(Color.BLACK);
+		frame.setVisible(true);
 	}
 
-	public Ventana() {
-		GLFW.glfwCreateWindow(Const.Width, Const.Height, Const.Name, 0, 0);
+	public static JFrame getFrame() {
+		return frame;
 	}
 }

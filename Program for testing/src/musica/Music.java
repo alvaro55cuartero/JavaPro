@@ -3,11 +3,10 @@ package musica;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import control.Raton;
-import control.Teclado;
 import graphicsTools.Plot;
+import main.Program;
 
-public class Music {
+public class Music extends Program {
 
 	static Musica music;
 
@@ -29,11 +28,13 @@ public class Music {
 		music.stopLine();
 	}
 
-	public void tick(Raton raton, Teclado teclado) {
-
+	public void start() {
 	}
 
-	public void render(Graphics g) {
+	public void tick() {
+	}
+
+	public void render() {
 		p.render(g);
 
 		render(g, acorde, size);
@@ -58,4 +59,6 @@ public class Music {
 		}
 	}
 
+	public void dispose() {
+	}
 }

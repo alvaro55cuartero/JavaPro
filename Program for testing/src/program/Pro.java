@@ -10,10 +10,12 @@ import control.Raton;
 import control.Tecla;
 import control.Teclado;
 import main.Const;
+import main.Main;
+import main.Program;
 import mathycs.PointB;
 import tools.Lector;
 
-public class Program {
+public class Pro extends Program {
 
 	// El ArrayList comandos se encarga de guardar los comandos que se ejecutaran
 	// una vez por tick
@@ -45,11 +47,8 @@ public class Program {
 
 	// Constructor
 
-	public Program(Raton raton, Teclado teclado) {
-
-		this.raton = raton;
-		this.teclado = teclado;
-
+	public Pro() {
+		super();
 		tipos.add(new Tipo("program"));
 
 		objetos.add(tipos.get(findTipo("program")));
@@ -57,24 +56,24 @@ public class Program {
 		// tickHijos();
 	}
 
-	public void tick(Raton raton, Teclado teclado) {
+	public void tick() {
 		// tickObjetos(raton, teclado);
 		// focus(raton);
 		tickTipos();
 	}
 
-	public void render(Graphics g) {
-		renderObjetos(g);
+	public void render() {
+		renderObjetos(Main.g);
 		// objetos.get(focusObj).rendFocus(g);
-		dibujo(g, 50, 40);
+		dibujo(Main.g, 50, 40);
 
 		for (int i = 0; i < objetos.size(); i++) {
-			g.drawString(objetos.get(i).tipo, 500, 100 + (20 * i));
+			Main.g.drawString(objetos.get(i).tipo, 500, 100 + (20 * i));
 		}
-		for (int i = 0; i < objetos.size(); i++) {
+		for (int i =0; i < objetos.size(); i++) {
 			// g.drawString(objetos.get(i).shape[0].toString(), 500, 100 + (20 * i));
 		}
-		g.drawString("" + focusObj, 50, 10);
+		Main.g.drawString("" + focusObj, 50, 10);
 
 	}
 
@@ -536,5 +535,13 @@ public class Program {
 			}
 		}
 		return false;
+	}
+
+	public void start() {
+
+	}
+
+	public void dispose() {
+
 	}
 }
