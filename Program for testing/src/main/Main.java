@@ -10,7 +10,7 @@ public class Main {
 	public static Raton raton;
 	public static Teclado teclado;
 	public static Graphics g;
-	Root root;
+	private static Root root;
 
 	public void loop() {
 		start();

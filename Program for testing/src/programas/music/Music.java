@@ -1,4 +1,4 @@
-package musica;
+package programas.music;
 
 import java.awt.Color;
 import java.awt.Graphics;

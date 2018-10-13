@@ -1,4 +1,4 @@
-package musica;
+package programas.music;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;

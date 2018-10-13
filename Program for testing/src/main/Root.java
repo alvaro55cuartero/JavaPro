@@ -1,9 +1,9 @@
 package main;
 
-import musica.MenuMusic;
-import musica.Music;
-import program.Plot;
-import program.Pro;
+import programas.music.MenuMusic;
+import programas.music.Music;
+import programas.pro.Plot;
+import programas.pro.Pro;
 
 public class Root {
 

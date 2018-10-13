@@ -1,4 +1,4 @@
-package musica;
+package programas.music;
 
 public class Binario {
 

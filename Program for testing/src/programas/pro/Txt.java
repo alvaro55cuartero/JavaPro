@@ -1,4 +1,4 @@
-package program;
+package programas.pro;
 
 import java.awt.Color;
 import java.awt.Graphics;

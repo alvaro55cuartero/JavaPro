@@ -1,4 +1,4 @@
-package musica;
+package programas.music;
 
 import javax.swing.JMenu;
 

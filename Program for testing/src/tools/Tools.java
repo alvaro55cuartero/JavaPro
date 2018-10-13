@@ -2,7 +2,7 @@ package tools;
 
 import java.awt.geom.Point2D;
 
-import program.Obj;
+import programas.pro.Obj;
 
 public class Tools {
 
