@@ -12,7 +12,7 @@ import control.Teclado;
 import main.Const;
 import main.Main;
 import main.Program;
-import mathycs.PointB;
+import test.mathycs.PointB;
 import tools.Lector;
 
 public class Pro extends Program {

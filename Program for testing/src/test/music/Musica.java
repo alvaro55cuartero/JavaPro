@@ -1,11 +1,11 @@
-package programas.music;
+package test.music;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 
-import test.mathycs.Mathycs;
+import mathycs.Mathycs;
 
 public class Musica {
 
@@ -119,11 +119,11 @@ public class Musica {
 		return a;
 	}
 
-	public byte[] binToChord(int root, String[] bin, int size) {
+	public byte[] binToChord(int root, Acorde acorde, int size) {
 		byte[] chord = rellenar(size);
 
-		for (int i = 0; i < bin.length; i++) {
-			if (bin[i].matches("1")) {
+		for (int i = 0; i < acorde.serie.length; i++) {
+			if (acorde.serie[i]) {
 				chord = Mathycs.add(chord, nota(frec(monos(root + i), 4), size));
 			}
 		}
@@ -137,6 +137,10 @@ public class Musica {
 			r[i] = 0;
 		}
 		return r;
+	}
+
+	public static void main(String[] args) {
+		acumula += ancho;
 	}
 
 }

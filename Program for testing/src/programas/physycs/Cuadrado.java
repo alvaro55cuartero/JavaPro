@@ -5,7 +5,7 @@ import java.awt.geom.Point2D;
 
 import control.Raton;
 import control.Teclado;
-import neural.Tools;
+import test.neural.Tools;
 
 public class Cuadrado extends ObjPhy {
 
