@@ -1,11 +1,13 @@
 package programas.mathycs;
 
+import java.awt.Point;
+
 public class Mathycs {
 
-	public static PointB cuadrada(double a, double b, double c) {
-		PointB p = new PointB();
-		p.setX((-b + Math.sqrt(Math.pow(b, 2) - (4 * a * c))) / 2 * a);
-		p.setY((-b - Math.sqrt(Math.pow(b, 2) - (4 * a * c))) / 2 * a);
+	public static Point.Double cuadrada(double a, double b, double c) {
+		Point.Double p = new Point.Double();
+		p.setLocation((-b + Math.sqrt(Math.pow(b, 2) - (4 * a * c))) / 2 * a,
+				(-b - Math.sqrt(Math.pow(b, 2) - (4 * a * c))) / 2 * a);
 		return p;
 	}
 

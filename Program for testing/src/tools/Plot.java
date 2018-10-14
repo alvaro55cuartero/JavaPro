@@ -1,4 +1,4 @@
-package programas.pro;
+package tools;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -6,7 +6,6 @@ import java.awt.geom.Point2D;
 
 import main.Const;
 import main.Program;
-import tools.Tools;
 
 public class Plot extends Program {
 

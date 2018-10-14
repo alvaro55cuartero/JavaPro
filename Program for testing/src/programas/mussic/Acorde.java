@@ -1,4 +1,4 @@
-package test.mussic;
+package programas.mussic;
 
 public class Acorde {
 

@@ -1,12 +1,11 @@
-package test.mussic;
+package programas.mussic;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 
-import mathycs.Mathycs;
-import music.Acorde;
+import programas.mathycs.Mathycs;
 
 public class Musica {
 
@@ -138,10 +137,6 @@ public class Musica {
 			r[i] = 0;
 		}
 		return r;
-	}
-
-	public static void main(String[] args) {
-		acumula += ancho;
 	}
 
 }

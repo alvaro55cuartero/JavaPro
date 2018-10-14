@@ -1,4 +1,4 @@
-package test.mussic;
+package programas.mussic;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -7,14 +7,15 @@ import java.util.ArrayList;
 
 import test.control.Raton;
 import test.control.Teclado;
+import tools.Circulo;
 import tools.Tools;
 
 public class MenuFrec {
 
 	byte[] nota;
 	static int[] espectro;
-	Point pos;
-	Point dim;
+	Point.Double pos;
+	Point.Double dim;
 
 	ArrayList<Circulo> circ = new ArrayList<Circulo>();
 

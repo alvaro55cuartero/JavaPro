@@ -10,12 +10,15 @@ import control.Raton;
 import control.Tecla;
 import control.Teclado;
 import main.Const;
-import main.Main;
+import main.Lienzo;
 import main.Program;
+import main.Ventana;
 import test.mathycs.PointB;
 import tools.Lector;
 
 public class Pro extends Program {
+
+	Lienzo lienzo = new Lienzo(Const.Width, Const.Height);
 
 	// El ArrayList comandos se encarga de guardar los comandos que se ejecutaran
 	// una vez por tick
@@ -49,6 +52,8 @@ public class Pro extends Program {
 
 	public Pro() {
 		super();
+		Ventana.getFrame().add(lienzo.getCanvas());
+
 		tipos.add(new Tipo("program"));
 
 		objetos.add(tipos.get(findTipo("program")));
@@ -63,17 +68,21 @@ public class Pro extends Program {
 	}
 
 	public void render() {
-		renderObjetos(Main.g);
+		lienzo.renderStart();
+
+		renderObjetos(lienzo.getG());
 		// objetos.get(focusObj).rendFocus(g);
-		dibujo(Main.g, 50, 40);
+		dibujo(lienzo.getG(), 50, 40);
 
 		for (int i = 0; i < objetos.size(); i++) {
-			Main.g.drawString(objetos.get(i).tipo, 500, 100 + (20 * i));
+			lienzo.getG().drawString(objetos.get(i).tipo, 500, 100 + (20 * i));
 		}
-		for (int i =0; i < objetos.size(); i++) {
+		for (int i = 0; i < objetos.size(); i++) {
 			// g.drawString(objetos.get(i).shape[0].toString(), 500, 100 + (20 * i));
 		}
-		Main.g.drawString("" + focusObj, 50, 10);
+		lienzo.getG().drawString("" + focusObj, 50, 10);
+
+		lienzo.renderEnd();
 
 	}
 

@@ -3,19 +3,21 @@ package main;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 
 public class Lienzo {
 
-	private static BufferStrategy bs;
-	private static Canvas canvas;
-	private static int ancho;
-	private static int alto;
+	private BufferStrategy bs;
+	private Graphics g;
+	private Canvas canvas;
+	private int ancho;
+	private int alto;
 
-	public static void start(int ancho, int alto) {
-		Lienzo.ancho = ancho;
-		Lienzo.alto = alto;
+	public Lienzo(int ancho, int alto) {
+		this.ancho = ancho;
+		this.alto = alto;
 		canvas = new Canvas();
 
 		canvas.setIgnoreRepaint(true);
@@ -26,23 +28,27 @@ public class Lienzo {
 		canvas.requestFocus();
 	}
 
-	public static void renderStart() {
+	public void renderStart() {
 		if (bs == null) {
-			Lienzo.canvas.createBufferStrategy(3);
-			bs = Lienzo.canvas.getBufferStrategy();
+			canvas.createBufferStrategy(3);
+			bs = canvas.getBufferStrategy();
 		}
-		Main.g = bs.getDrawGraphics();
-		Main.g.setColor(Color.BLACK);
-		Main.g.fillRect(0, 0, ancho, alto);
+		g = bs.getDrawGraphics();
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, ancho, alto);
 	}
 
-	public static void renderEnd() {
+	public void renderEnd() {
 		Toolkit.getDefaultToolkit().sync();
-		Main.g.dispose();
+		g.dispose();
 		bs.show();
 	}
 
-	public static Canvas getCanvas() {
+	public Canvas getCanvas() {
 		return canvas;
+	}
+
+	public Graphics getG() {
+		return g;
 	}
 }

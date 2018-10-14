@@ -1,4 +1,4 @@
-package test.mussic;
+package programas.mussic;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,9 +9,6 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-
-import music.Acorde;
-import music.Musica;
 
 public class Window extends JFrame implements ActionListener {
 
