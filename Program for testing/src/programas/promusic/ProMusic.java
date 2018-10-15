@@ -86,6 +86,10 @@ public class ProMusic extends Program implements ActionListener {
 		lienzo.renderEnd();
 	}
 
+	public void debug() {
+
+	}
+
 	public void dispose() {
 
 	}

@@ -61,11 +61,15 @@ public class Pro extends Program {
 		// tickHijos();
 	}
 
+	// funciones de tick
+
 	public void tick() {
 		// tickObjetos(raton, teclado);
 		// focus(raton);
 		tickTipos();
 	}
+
+	// funciones de renderizado
 
 	public void render() {
 		lienzo.renderStart();
@@ -116,20 +120,12 @@ public class Pro extends Program {
 		return y;
 	}
 
-	public void stop() {
-
-	}
-
-	// funciones de renderizado
-
 	private void renderObjetos(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		for (int i = 0; i < objetos.size(); i++) {
 			objetos.get(i).render(g2);
 		}
 	}
-
-	// funciones de tick
 
 	private void tickTipos() {
 		for (int i = 0; i < tipos.size(); i++) {
@@ -160,10 +156,6 @@ public class Pro extends Program {
 	// }
 
 	// funciones de programa
-
-	private void loop() {
-
-	}
 
 	private void comando(String frase, String linea) {
 		String[] palabra = frase.split("\\.");
@@ -547,6 +539,10 @@ public class Pro extends Program {
 	}
 
 	public void start() {
+
+	}
+
+	public void debug() {
 
 	}
 

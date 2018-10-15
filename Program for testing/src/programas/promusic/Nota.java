@@ -1,6 +1,6 @@
 package programas.promusic;
 
-import test.mathycs.Mathycs;
+import programas.mathycs.Mathycs;
 
 public class Nota {
 

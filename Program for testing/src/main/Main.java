@@ -76,6 +76,11 @@ public class Main {
 
 	private void render() {
 		root.render();
+		debug();
+	}
+
+	private void debug() {
+		root.debug();
 	}
 
 	private void dispose() {

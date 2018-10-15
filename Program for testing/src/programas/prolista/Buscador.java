@@ -1,4 +1,4 @@
-package test.lista;
+package programas.prolista;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -8,7 +8,7 @@ import java.io.File;
 
 import javax.swing.JFrame;
 
-import test.control.Raton;
+import main.Main;
 
 public class Buscador extends JFrame {
 
@@ -17,7 +17,6 @@ public class Buscador extends JFrame {
 
 	BufferStrategy bs;
 	Graphics g;
-	Raton raton;
 
 	int ancho = 600;
 	int alto = 400;
@@ -82,7 +81,7 @@ public class Buscador extends JFrame {
 		g = bs.getDrawGraphics();
 		g.setColor(Color.black);
 		g.fillRect(0, 0, ancho, alto);
-		raton.render(g);
+		Main.raton.render(g);
 
 		list.render(g);
 

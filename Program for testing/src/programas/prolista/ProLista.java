@@ -1,4 +1,4 @@
-package test.lista;
+package programas.prolista;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,15 +19,18 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.ListModel;
 
-public class Main implements ActionListener {
+import main.Const;
+import main.Program;
+import main.Ventana;
 
-	public static final int WIDTH = 600;
-	public static final int HEIGHT = 400;
+public class ProLista extends Program implements ActionListener {
 
-	JFrame frame;
 	JPanel panel;
+
 	JMenu menu;
+
 	JMenuBar bar;
+
 	JMenuItem mi;
 	JMenuItem mi2;
 	JMenuItem mi3;
@@ -38,16 +41,12 @@ public class Main implements ActionListener {
 	String ruta;
 
 	Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+
 	JList<String> list;
 
 	ArrayList<String> a;
 
-	public static void main(String[] args) {
-		new Main();
-	}
-
-	public Main() {
-		frame = new JFrame();
+	public ProLista() {
 		panel = new JPanel();
 		menu = new JMenu();
 		bar = new JMenuBar();
@@ -83,14 +82,71 @@ public class Main implements ActionListener {
 		panel.setBackground(Color.BLACK);
 		panel.setLayout(null);
 
-		frame.setBounds((dimension.width - WIDTH) / 2, (dimension.height - HEIGHT) / 2, WIDTH, HEIGHT);
-		frame.setTitle("Mapa");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setBackground(Color.BLACK);
-		frame.add(panel, BorderLayout.CENTER);
-		frame.add(bar, BorderLayout.NORTH);
-		frame.setVisible(true);
+		Ventana.getFrame().setBounds((dimension.width - Const.Width) / 2, (dimension.height - Const.Height) / 2,
+				Const.Width, Const.Height);
+		Ventana.getFrame().setTitle("Mapa");
+		Ventana.getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Ventana.getFrame().setBackground(Color.BLACK);
+		Ventana.getFrame().add(panel, BorderLayout.CENTER);
+		Ventana.getFrame().add(bar, BorderLayout.NORTH);
+		Ventana.getFrame().setVisible(true);
+	}
 
+	public void start() {
+
+	}
+
+	public void tick() {
+
+	}
+
+	public void render() {
+
+	}
+
+	public void debug() {
+
+	}
+
+	public void dispose() {
+
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(mi)) {
+			ruta = JOptionPane.showInputDialog("Select File");
+			procesadorTxt(ruta);
+		}
+		if (e.getSource().equals(mi2)) {
+			ListModel<String> a = list.getModel();
+			String[] b = new String[a.getSize()];
+			for (int i = 0; i < a.getSize(); i++) {
+				b[i] = a.getElementAt(i);
+			}
+
+			list.setListData(ordenar(b));
+		}
+
+		if (e.getSource().equals(mi3)) {
+			ruta = JOptionPane.showInputDialog("Select File");
+
+			ListModel<String> a = list.getModel();
+
+			String b = "";
+			for (int i = 0; i < a.getSize(); i++) {
+				b = b + "\n" + a.getElementAt(i);
+			}
+
+			try {
+				Lector.createFile(ruta, b);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+
+		if (e.getSource().equals(mi4)) {
+			Buscador b = new Buscador();
+		}
 	}
 
 	private String[] rellenar(ArrayList<String> a) {
@@ -156,43 +212,6 @@ public class Main implements ActionListener {
 
 	}
 
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(mi)) {
-			ruta = JOptionPane.showInputDialog("Select File");
-			procesadorTxt(ruta);
-		}
-		if (e.getSource().equals(mi2)) {
-			ListModel<String> a = list.getModel();
-			String[] b = new String[a.getSize()];
-			for (int i = 0; i < a.getSize(); i++) {
-				b[i] = a.getElementAt(i);
-			}
-
-			list.setListData(ordenar(b));
-		}
-
-		if (e.getSource().equals(mi3)) {
-			ruta = JOptionPane.showInputDialog("Select File");
-
-			ListModel<String> a = list.getModel();
-
-			String b = "";
-			for (int i = 0; i < a.getSize(); i++) {
-				b = b + "\n" + a.getElementAt(i);
-			}
-
-			try {
-				Lector.createFile(ruta, b);
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-		}
-
-		if (e.getSource().equals(mi4)) {
-			Buscador b = new Buscador();
-		}
-	}
-
 	public String nombreArchivo(String ruta) {
 		byte b = '/';
 		int c = 0;
@@ -244,4 +263,5 @@ public class Main implements ActionListener {
 
 		}
 	}
+
 }

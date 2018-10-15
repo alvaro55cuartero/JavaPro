@@ -8,5 +8,8 @@ public abstract class Program {
 
 	public abstract void render();
 
+	public abstract void debug();
+
 	public abstract void dispose();
+
 }

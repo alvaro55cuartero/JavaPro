@@ -48,26 +48,6 @@ public class Musica {
 		line.close();
 	}
 
-	public byte[] nota(double frec) {
-		byte[] sin = new byte[2 * sampleRate];
-		for (int i = 0; i < sin.length; i++) {
-			double period = (double) sampleRate / frec;
-			double angle = 2.0 * Math.PI * i / period;
-			sin[i] = (byte) (Math.sin(angle) * 127f);
-		}
-		return sin;
-	}
-
-	public byte[] nota(double frec, int size) {
-		byte[] sin = new byte[size];
-		for (int i = 0; i < sin.length; i++) {
-			double period = (double) sampleRate / frec;
-			double angle = 2.0 * Math.PI * i / period;
-			sin[i] = (byte) (Math.sin(angle) * 127f);
-		}
-		return sin;
-	}
-
 	public int length(int ms) {
 		ms = Math.min(ms, 2 * 1000);
 		int length = sampleRate * ms / 1000;

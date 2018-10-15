@@ -1,10 +1,10 @@
 package main;
 
-import programas.music.MenuMusic;
-import programas.music.Music;
 import programas.pro.Pro;
+import programas.prolista.ProLista;
+import programas.promusic.MenuMusic;
+import programas.promusic.Music;
 import programas.promusic.ProMusic;
-import tools.Plot;
 
 public class Root {
 
@@ -24,6 +24,9 @@ public class Root {
 		case 3:
 			program = new ProMusic();
 			break;
+		case 4:
+			program = new ProLista();
+			break;
 
 		}
 	}
@@ -38,6 +41,10 @@ public class Root {
 
 	public void render() {
 		program.render();
+	}
+
+	public void debug() {
+		program.debug();
 	}
 
 	public void dispose() {

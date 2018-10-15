@@ -1,4 +1,4 @@
-package programas.music;
+package programas.promusic;
 
 import javax.swing.JMenu;
 

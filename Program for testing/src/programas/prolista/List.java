@@ -1,4 +1,4 @@
-package test.lista;
+package programas.prolista;
 
 import java.awt.Color;
 import java.awt.Graphics;

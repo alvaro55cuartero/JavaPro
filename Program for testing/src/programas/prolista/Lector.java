@@ -1,4 +1,4 @@
-package test.lista;
+package programas.prolista;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

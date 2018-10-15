@@ -1,4 +1,4 @@
-package programas.mussic;
+package programas.promusic;
 
 import java.awt.Color;
 import java.awt.Graphics;
