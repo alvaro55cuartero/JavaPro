@@ -4,9 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
-import test.control.Raton;
-import test.control.Teclado;
-
 public class Circulo {
 
 	Point pos;

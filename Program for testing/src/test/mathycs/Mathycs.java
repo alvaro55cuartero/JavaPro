@@ -30,4 +30,26 @@ public class Mathycs {
 
 		return c;
 	}
+
+	public static int[] add(int[] a, int[] b) {
+		int[] c;
+		if (a.length < b.length) {
+			c = new int[b.length];
+
+		} else {
+			c = new int[a.length];
+		}
+
+		for (int i = 0; i < c.length; i++) {
+			if (i > a.length) {
+				c[i] = b[i];
+			} else if (i > b.length) {
+				c[i] = a[i];
+			} else {
+				c[i] = (int) ((b[i] + a[i]) / 2);
+			}
+		}
+
+		return c;
+	}
 }

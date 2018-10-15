@@ -3,7 +3,6 @@ package programas.music;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import graphicsTools.Plot;
 import main.Program;
 
 public class Music extends Program {

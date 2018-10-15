@@ -1,11 +1,11 @@
-package test.music;
+package programas.promusic;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 
-import mathycs.Mathycs;
+import programas.mathycs.Mathycs;
 
 public class Musica {
 
@@ -138,9 +138,4 @@ public class Musica {
 		}
 		return r;
 	}
-
-	public static void main(String[] args) {
-		acumula += ancho;
-	}
-
 }
