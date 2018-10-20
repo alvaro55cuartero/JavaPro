@@ -5,7 +5,7 @@ public class Const {
 	public static final int Width = 640;
 	public static final int Height = 480;
 
-	public static final int program = 4;
+	public static final int program = 5;
 
 	public static final String Name = "Program";
 

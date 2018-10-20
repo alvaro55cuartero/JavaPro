@@ -1,6 +1,7 @@
 package main;
 
 import programas.pro.Pro;
+import programas.prolector.ProLector;
 import programas.prolista.ProLista;
 import programas.promusic.MenuMusic;
 import programas.promusic.Music;
@@ -26,6 +27,9 @@ public class Root {
 			break;
 		case 4:
 			program = new ProLista();
+			break;
+		case 5:
+			program = new ProLector();
 			break;
 
 		}

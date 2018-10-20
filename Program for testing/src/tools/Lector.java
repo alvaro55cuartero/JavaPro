@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Lector {
 
@@ -52,5 +54,11 @@ public class Lector {
 		}
 
 		return files;
+	}
+
+	public static String insert(String text, String insert, int period) {
+		Pattern p = Pattern.compile("(.{" + period + "})", Pattern.DOTALL);
+		Matcher m = p.matcher(text);
+		return m.replaceAll("$1" + insert);
 	}
 }

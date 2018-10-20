@@ -15,7 +15,6 @@ public class Ventana {
 		frame.setPreferredSize(new Dimension(Const.Width, Const.Height));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBackground(Color.BLACK);
-		frame.setVisible(true);
 
 	}
 

@@ -68,6 +68,8 @@ public class Main {
 
 		root = new Root();
 		root.start();
+		Ventana.getFrame().pack();
+		Ventana.getFrame().setVisible(true);
 	}
 
 	private void tick() {
