@@ -1,11 +1,12 @@
 package programas.physycs;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.geom.Point2D;
 
 import control.Raton;
 import control.Teclado;
-import programas.pro.Obj;
+import main.Obj;
 
 public class ObjPhy extends Obj {
 
@@ -13,8 +14,9 @@ public class ObjPhy extends Obj {
 
 	public boolean gravedad;
 
-	public ObjPhy(Point2D.Double pos, Point2D.Double dim, String name, boolean focus, boolean vis, double masa) {
-		super(pos, dim, name, focus, vis);
+	public ObjPhy(int id, Point2D.Double pos, Point2D.Double dim, String name, boolean focus, boolean vis, Color color,
+			double masa) {
+		super(id, pos, dim, name, focus, vis, color);
 		this.masa = masa;
 	}
 

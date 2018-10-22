@@ -5,7 +5,6 @@ import java.awt.geom.Point2D;
 
 import control.Raton;
 import control.Teclado;
-import test.neural.Tools;
 
 public class Cuadrado extends ObjPhy {
 
@@ -16,8 +15,8 @@ public class Cuadrado extends ObjPhy {
 
 	public double lado;
 
-	public Cuadrado(double lado, Point2D.Double pos, boolean focus, String name) {
-		super(pos, null, name, focus, focus, lado);
+	public Cuadrado(int id, double lado, Point2D.Double pos, boolean focus, String name) {
+		super(id, pos, null, name, focus, focus, lado);
 		this.pos = pos;
 		this.lado = lado;
 		this.dir = new Point2D.Double(1, 0);

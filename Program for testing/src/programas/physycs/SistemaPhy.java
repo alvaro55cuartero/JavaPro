@@ -1,10 +1,6 @@
 package programas.physycs;
 
-import java.awt.Graphics;
 import java.util.ArrayList;
-
-import control.Raton;
-import control.Teclado;
 
 public class SistemaPhy {
 
@@ -14,11 +10,11 @@ public class SistemaPhy {
 
 	}
 
-	public void tick(Raton raton, Teclado teclado) {
+	public void tick() {
 
 	}
 
-	public void render(Graphics g) {
+	public void render() {
 
 	}
 

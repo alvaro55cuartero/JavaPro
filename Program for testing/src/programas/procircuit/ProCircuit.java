@@ -1,12 +1,8 @@
-package programas.physycs;
+package programas.procircuit;
 
 import main.Program;
 
-public class ProPhysycs extends Program {
-
-	public ProPhysycs() {
-
-	}
+public class ProCircuit extends Program {
 
 	public void start() {
 
@@ -27,5 +23,4 @@ public class ProPhysycs extends Program {
 	public void dispose() {
 
 	}
-
 }

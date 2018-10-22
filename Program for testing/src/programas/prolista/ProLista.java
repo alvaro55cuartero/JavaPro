@@ -22,6 +22,7 @@ import javax.swing.ListModel;
 import main.Const;
 import main.Program;
 import main.Ventana;
+import tools.Lector;
 
 public class ProLista extends Program implements ActionListener {
 

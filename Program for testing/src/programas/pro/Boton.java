@@ -6,6 +6,7 @@ import java.awt.geom.Point2D;
 
 import control.Raton;
 import control.Teclado;
+import main.Obj;
 
 public class Boton extends Obj {
 
