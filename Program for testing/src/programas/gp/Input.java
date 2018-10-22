@@ -5,7 +5,7 @@ import java.awt.geom.Point2D.Double;
 
 import control.Raton;
 import control.Teclado;
-import programas.pro.Obj;
+import main.Obj;
 
 public class Input extends Obj {
 

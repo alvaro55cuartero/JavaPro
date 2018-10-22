@@ -10,6 +10,7 @@ import control.Raton;
 import control.Tecla;
 import control.Teclado;
 import main.Const;
+import main.Obj;
 import test.mathycs.PointB;
 import tools.Lector;
 
