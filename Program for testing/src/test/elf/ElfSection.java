@@ -29,4 +29,11 @@ public class ElfSection {
 		this.sh_entsize = Arrays.copyOfRange(section, 36, 39);
 	}
 
+	public String toString() {
+		return "sh_name: " + sh_name + "\n" + "sh_type: " + sh_type + "\n" + "sh_flags: " + sh_flags + "\n"
+				+ "sh_addr: " + sh_addr + "\n" + "sh_offset: " + sh_size + "\n" + "sh_link: " + sh_link + "\n"
+				+ "sh_info: " + sh_info + "\n" + "sh_addralign: " + sh_addralign + "\n" + "sh_entsize: " + sh_entsize
+				+ "\n";
+	}
+
 }

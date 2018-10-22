@@ -8,8 +8,8 @@ import tools.Lector;
 public class Main {
 
 	private byte[] e_ident;
-	private byte[] e_type;
-	private byte[] e_machine;
+	private short e_type;
+	private short e_machine;
 	private byte[] e_version;
 	private byte[] e_entry;
 	private byte[] e_phoff;
@@ -47,6 +47,9 @@ public class Main {
 		this.e_shnum = Arrays.copyOfRange(txt, 60, 61);
 		this.e_shstrndx = Arrays.copyOfRange(txt, 62, 63);
 
+		for (int i = 0; i < e_phnum; i++) {
+
+		}
 	}
 
 }
