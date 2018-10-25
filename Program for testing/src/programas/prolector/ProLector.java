@@ -15,7 +15,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 
 import main.Program;
 import main.Ventana;
@@ -30,7 +30,7 @@ public class ProLector extends Program implements ActionListener {
 	JPanel panel;
 	JMenuBar bar;
 	JFileChooser fileChooser;
-	JTextArea area;
+	JTextPane area;
 	JScrollPane sp;
 
 	JMenu menu1;
@@ -72,7 +72,8 @@ public class ProLector extends Program implements ActionListener {
 		mi33 = new JCheckBoxMenuItem();
 
 		fileChooser = new JFileChooser();
-		area = new JTextArea();
+		area = new JTextPane();
+		area.setEditable(false);
 		area.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12));
 		sp = new JScrollPane(area);
 
@@ -195,10 +196,12 @@ public class ProLector extends Program implements ActionListener {
 
 				String form = Lector.insert(txt, " ", 8);
 				String forms[] = form.split(" ");
-				if (mi32.isSelected()) {
-					for (int i = 0; i < hexs.length; i++) {
-						hexs[i] = Lector.insert(hexs[i], " ", 2);
-						hexs[i] = Lector.insert(hexs[i], " ", 12);
+
+				for (int i = 0; i < hexs.length; i++) {
+
+					hexs[i] = Lector.insert(hexs[i], " ", 2);
+					hexs[i] = Lector.insert(hexs[i], " ", 12);
+					if (mi32.isSelected()) {
 						hexs[i] = hexs[i] + "  " + forms[i];
 					}
 				}
