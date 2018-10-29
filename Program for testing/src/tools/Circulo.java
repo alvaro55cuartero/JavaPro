@@ -6,13 +6,13 @@ import java.awt.Point;
 
 public class Circulo {
 
-	Point pos;
+	public Point pos;
 
 	public Circulo(Point pos) {
 		this.pos = pos;
 	}
 
-	public void tick(Raton raton, Teclado teclado) {
+	public void tick() {
 
 	}
 

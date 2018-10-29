@@ -5,8 +5,9 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import test.control.Raton;
-import test.control.Teclado;
+import control.Raton;
+import main.Main;
+import programas.mathycs.Mathycs;
 import tools.Circulo;
 import tools.Tools;
 
@@ -14,8 +15,8 @@ public class MenuFrec {
 
 	byte[] nota;
 	static int[] espectro;
-	Point.Double pos;
-	Point.Double dim;
+	Point pos;
+	Point dim;
 
 	ArrayList<Circulo> circ = new ArrayList<Circulo>();
 
@@ -23,14 +24,14 @@ public class MenuFrec {
 		nota = new byte[tam];
 		this.pos = pos;
 		this.dim = dim;
-		circ.add(new Circulo(new Point(pos.x, 100)));
+		circ.add(new Circulo(new Point((int) pos.x, 100)));
 
-		circ.add(new Circulo(new Point(pos.x + dim.x, pos.y + dim.y / 2)));
+		circ.add(new Circulo(new Point((int) (pos.x + dim.x), (int) (pos.y + dim.y / 2))));
 	}
 
-	public void tick(Raton raton, Teclado teclado) {
+	public void tick() {
 		boolean temp = true;
-		if (raton.isClick() && Tools.inside(Raton.pos, pos, dim)) {
+		if (Main.raton.isClick() && Tools.inside(Main.raton.pos, pos, dim)) {
 			for (int i = 0; i < circ.size(); i++) {
 				if (Tools.inside(Raton.pos, circ.get(i).pos, new Point(10, 10))) {
 					System.out.println("Error tick MenuFrec");
@@ -39,7 +40,7 @@ public class MenuFrec {
 				}
 			}
 			for (int i = 0; i < circ.size() - 1; i++) {
-				if (temp && Tools.between(raton.pos.getX(), circ.get(i).pos.getX(), circ.get(i + 1).pos.getX())) {
+				if (temp && Tools.between(Main.raton.pos.getX(), circ.get(i).pos.getX(), circ.get(i + 1).pos.getX())) {
 					circ.add(i + 1, new Circulo(new Point(Raton.pos)));
 				}
 			}
@@ -102,7 +103,7 @@ public class MenuFrec {
 			for (int t = 0; t < noti.length; t++) {
 				noti[t] = (byte) ((127 / 1000) * espectro[i] * Math.sin(2 * Math.PI * t));
 			}
-			note = mathycs.Mathycs.add(note, noti);
+			note = Mathycs.add(note, noti);
 		}
 
 		return note;

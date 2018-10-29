@@ -1,5 +1,6 @@
 package tools;
 
+import java.awt.Point;
 import java.awt.geom.Point2D;
 
 import main.Obj;
@@ -15,6 +16,15 @@ public class Tools {
 	}
 
 	public static boolean inside(Point2D.Double p, Point2D.Double pos, Point2D.Double dim) {
+		boolean r = false;
+		if (between(p.getX(), pos.getX(), pos.getX() + dim.getX())
+				&& between(p.getY(), pos.getY(), pos.getY() + dim.getY())) {
+			r = true;
+		}
+		return r;
+	}
+
+	public static boolean inside(Point p, Point pos, Point dim) {
 		boolean r = false;
 		if (between(p.getX(), pos.getX(), pos.getX() + dim.getX())
 				&& between(p.getY(), pos.getY(), pos.getY() + dim.getY())) {
