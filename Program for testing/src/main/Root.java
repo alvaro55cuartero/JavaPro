@@ -6,6 +6,7 @@ import programas.prolista.ProLista;
 import programas.promusic.MenuMusic;
 import programas.promusic.Music;
 import programas.promusic.ProMusic;
+import programas.protexto.ProTexto;
 
 public class Root {
 
@@ -30,6 +31,9 @@ public class Root {
 			break;
 		case 5:
 			program = new ProLector();
+			break;
+		case 6:
+			program = new ProTexto();
 			break;
 
 		}
