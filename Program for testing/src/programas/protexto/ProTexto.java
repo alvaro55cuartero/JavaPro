@@ -36,6 +36,8 @@ public class ProTexto extends Program implements ActionListener {
 
 	File file;
 
+	boolean newword;
+
 	public void start() {
 		panel = new JPanel();
 		menuBar = new JMenuBar();
@@ -87,7 +89,12 @@ public class ProTexto extends Program implements ActionListener {
 	}
 
 	public void tick() {
-
+		if (last() == ' ') {
+			newword = true;
+		}
+		if (newword) {
+			lastWord();
+		}
 	}
 
 	public void render() {
@@ -129,4 +136,21 @@ public class ProTexto extends Program implements ActionListener {
 		}
 		return null;
 	}
+
+	private char last() {
+		String txt = area.getText();
+		return txt.charAt(txt.length());
+	}
+
+	private String lastWord() {
+		String[] palabras = area.getText().split(" ");
+		return palabras[palabras.length];
+	}
+
+	private String[] buscar(String palabra, String[] array) {
+		String[] r;
+		
+		for
+	}
+
 }
