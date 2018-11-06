@@ -44,6 +44,7 @@ public class ProLista extends Program implements ActionListener {
 	ArrayList<String> a;
 
 	public ProLista() {
+		Ventana.getFrame().getContentPane().removeAll();
 		panel = new JPanel();
 		m1 = new JMenu();
 		bar = new JMenuBar();
@@ -83,6 +84,7 @@ public class ProLista extends Program implements ActionListener {
 		Ventana.getFrame().setBackground(Color.BLACK);
 		Ventana.getFrame().add(panel, BorderLayout.CENTER);
 		Ventana.getFrame().add(bar, BorderLayout.NORTH);
+		Ventana.getFrame().pack();
 
 	}
 

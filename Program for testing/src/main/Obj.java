@@ -42,7 +42,7 @@ public class Obj {
 	public void rendFocus(Graphics g) {
 		g.setColor(Color.black);
 		g.drawOval((int) pos.getX(), (int) pos.getY(), 5, 5);
-		g.setColor(Color.green);
+		g.setColor(color);
 		g.fillOval((int) pos.getX(), (int) pos.getY(), 5, 5);
 	}
 

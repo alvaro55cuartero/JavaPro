@@ -1,10 +1,9 @@
 package programas.gp;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.geom.Point2D.Double;
 
-import control.Raton;
-import control.Teclado;
 import main.Obj;
 
 public class Block extends Obj {
@@ -13,16 +12,16 @@ public class Block extends Obj {
 	Output[] out;
 
 	public Block(int id, Double pos, Double dim, String name, boolean focus, boolean vis, int in, int out) {
-		super(id, pos, dim, name, focus, vis);
+		super(id, pos, dim, name, focus, vis, Color.GRAY);
 		this.in = new Input[in];
 		this.out = new Output[out];
 	}
 
 	public Block(Obj obj, int in, int out) {
-		super(obj.id, obj.pos, obj.dim, obj.name, obj.focus, obj.vis);
+		this(obj.id, obj.pos, obj.dim, obj.name, obj.focus, obj.vis, in, out);
 	}
 
-	public void tick(Raton raton, Teclado teclado) {
+	public void tick() {
 
 	}
 

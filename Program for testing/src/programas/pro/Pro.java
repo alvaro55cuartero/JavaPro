@@ -3,6 +3,7 @@ package programas.pro;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -13,7 +14,6 @@ import main.Const;
 import main.Lienzo;
 import main.Program;
 import main.Ventana;
-import test.mathycs.PointB;
 import tools.Lector;
 
 public class Pro extends Program {
@@ -28,7 +28,7 @@ public class Pro extends Program {
 	// El ArrayList hijos se encarga de guardar las ralaciones entre los objetos del
 	// arraylist objetos
 
-	static ArrayList<PointB> hijos = new ArrayList<PointB>();
+	static ArrayList<Point> hijos = new ArrayList<Point>();
 
 	// el ArrayList tipos se encarga de guarda un ejemplar de cada tipo
 
@@ -72,7 +72,7 @@ public class Pro extends Program {
 	// funciones de renderizado
 
 	public void render() {
-		lienzo.renderStart();
+		// lienzo.renderStart();
 
 		renderObjetos(lienzo.getG());
 		// objetos.get(focusObj).rendFocus(g);
@@ -86,7 +86,7 @@ public class Pro extends Program {
 		}
 		lienzo.getG().drawString("" + focusObj, 50, 10);
 
-		lienzo.renderEnd();
+		// lienzo.renderEnd();
 
 	}
 

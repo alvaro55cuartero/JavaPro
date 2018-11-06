@@ -2,6 +2,7 @@ package programas.promusic;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -14,10 +15,11 @@ import javax.swing.JPanel;
 import main.Const;
 import main.Lienzo;
 import main.Program;
+import main.Renderer;
 import main.Ventana;
 import tools.Plot;
 
-public class ProMusic extends Program implements ActionListener {
+public class ProMusic extends Program implements ActionListener, Renderer {
 
 	Musica musica;
 	JPanel panel;
@@ -44,6 +46,7 @@ public class ProMusic extends Program implements ActionListener {
 	Nota nota = new Nota(amp, frec, 100000, 50000);
 
 	public ProMusic() {
+		Ventana.getFrame().getContentPane().removeAll();
 
 		musica = new Musica(50000);
 		panel = new JPanel();
@@ -89,9 +92,10 @@ public class ProMusic extends Program implements ActionListener {
 		menuBar.add(m1);
 		menuBar.add(m2);
 		panel.add(menuBar, BorderLayout.BEFORE_FIRST_LINE);
-		panel.add(lienzo.getCanvas(), BorderLayout.CENTER);
+		panel.add(lienzo, BorderLayout.CENTER);
 		panel.setVisible(true);
 		Ventana.getFrame().add(panel);
+		Ventana.getFrame().pack();
 
 	}
 
@@ -103,12 +107,13 @@ public class ProMusic extends Program implements ActionListener {
 
 	}
 
-	public void render() {
-		lienzo.renderStart();
-		lienzo.getG().setColor(Color.green);
-		plot.render(lienzo.getG());
-		lienzo.getG().setColor(Color.black);
-		lienzo.renderEnd();
+	public void render(Graphics2D g) {
+
+		g.setColor(Color.green);
+		plot.render(g);
+		g.fillRect(40, 30, 30, 40);
+		g.setColor(Color.black);
+
 	}
 
 	public void debug() {
@@ -147,6 +152,12 @@ public class ProMusic extends Program implements ActionListener {
 
 		}
 		// musica.stopLine();
+	}
+
+	@Override
+	public void render() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

@@ -54,6 +54,7 @@ public class ProLector extends Program implements ActionListener {
 	boolean ascii = true;
 
 	public ProLector() {
+		Ventana.getFrame().getContentPane().removeAll();
 		panel = new JPanel();
 		bar = new JMenuBar();
 		menu1 = new JMenu();
@@ -128,8 +129,8 @@ public class ProLector extends Program implements ActionListener {
 		panel.add(bar, BorderLayout.NORTH);
 		panel.add(sp, BorderLayout.CENTER);
 
-		Ventana.getFrame().setLocationRelativeTo(null);
 		Ventana.getFrame().add(panel);
+		Ventana.getFrame().pack();
 
 	}
 

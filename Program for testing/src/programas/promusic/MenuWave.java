@@ -4,24 +4,26 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
-import test.control.Raton;
-import test.control.Teclado;
+import javax.swing.JComponent;
 
-public class MenuWave {
+public class MenuWave extends JComponent {
 
 	Point pos;
 	Point dim;
-	Wave[] waves;
-	double[] espectro;
+	int size;
+	byte[] espectro;
+	Nota nota;
 
-	public MenuWave(Point pos, Point dim, double[] espectro) {
+	public MenuWave(Point pos, Point dim) {
 		this.pos = pos;
 		this.dim = dim;
-		this.espectro = espectro;
+		this.size = 1000;
+		this.espectro = new byte[size];
+		Nota nota = new Nota(10000, 50000);
 
 	}
 
-	public void tick(Raton raton, Teclado teclado) {
+	public void tick() {
 		rellenar();
 	}
 
@@ -31,11 +33,7 @@ public class MenuWave {
 	}
 
 	public void rellenar() {
-		for (int i = 0; i < espectro.length; i++) {
-			for (int j = 0; j < waves[i].valor.length; j++) {
-
-			}
-		}
+		Nota.
 	}
 
 }

@@ -2,50 +2,40 @@ package main;
 
 import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Toolkit;
+import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 
-public class Lienzo {
+import javax.swing.JPanel;
+
+public class Lienzo extends JPanel {
 
 	private BufferStrategy bs;
-	private Graphics g;
+	private Graphics2D g;
 	private Canvas canvas;
 	private int ancho;
 	private int alto;
+	private Renderer renderer;
 
 	public Lienzo(int ancho, int alto) {
 		this.ancho = ancho;
 		this.alto = alto;
-		canvas = new Canvas();
+		this.setBackground(Color.BLACK);
 
-		canvas.setIgnoreRepaint(true);
-		canvas.setPreferredSize(new Dimension(ancho, alto));
-		canvas.addMouseListener(Main.raton);
-		canvas.addKeyListener(Main.teclado);
-		canvas.setFocusable(true);
-		canvas.requestFocus();
 	}
 
-	public void renderStart() {
-		if (bs == null) {
-			canvas.createBufferStrategy(3);
-			bs = canvas.getBufferStrategy();
-		}
-		g = bs.getDrawGraphics();
-		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, ancho, alto);
-	}
-
-	public void renderEnd() {
-		Toolkit.getDefaultToolkit().sync();
-		g.dispose();
-		bs.show();
+	public void paint(Graphics graphics) {
+		super.paint(graphics);
+		g = (Graphics2D) graphics;
+		renderer.render(g);
 	}
 
 	public Canvas getCanvas() {
 		return canvas;
+	}
+
+	public void setRenderer(Object o) {
+		renderer = (Renderer) o;
 	}
 
 	public Graphics getG() {

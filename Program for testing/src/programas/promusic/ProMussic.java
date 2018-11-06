@@ -26,6 +26,10 @@ public class ProMussic extends Program {
 
 	}
 
+	public void debug() {
+
+	}
+
 	public void dispose() {
 
 	}

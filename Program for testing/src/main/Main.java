@@ -65,7 +65,7 @@ public class Main {
 		raton = new Raton();
 		teclado = new Teclado();
 
-		Ventana.start();
+		Ventana.start(teclado, raton);
 
 		root = new Root();
 		root.start();
@@ -74,6 +74,7 @@ public class Main {
 	}
 
 	private void tick() {
+
 		root.tick();
 	}
 

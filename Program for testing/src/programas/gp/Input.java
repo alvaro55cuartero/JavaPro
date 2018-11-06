@@ -1,5 +1,6 @@
 package programas.gp;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.geom.Point2D.Double;
 
@@ -10,7 +11,7 @@ import main.Obj;
 public class Input extends Obj {
 
 	public Input(int id, Double pos, Double dim, String name, boolean focus, boolean vis) {
-		super(id, pos, dim, name, focus, vis);
+		super(id, pos, dim, name, focus, vis, Color.green);
 	}
 
 	public void tick(Raton raton, Teclado teclado) {
