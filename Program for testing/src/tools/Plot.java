@@ -1,9 +1,8 @@
 package tools;
 
-import java.awt.Canvas;
 import java.awt.Graphics;
 
-public class Plot extends Canvas {
+public class Plot {
 
 	private int x;
 	private int y;
@@ -38,10 +37,6 @@ public class Plot extends Canvas {
 		this.height = height;
 		this.cX = cX;
 		this.cY = cY;
-	}
-
-	public void render() {
-
 	}
 
 	public void render(Graphics g) {

@@ -104,7 +104,7 @@ public class Musica {
 
 		for (int i = 0; i < acorde.serie.length; i++) {
 			if (acorde.serie[i]) {
-				chord = Mathycs.add(chord, nota(frec(monos(root + i), 4), size));
+				chord = Mathycs.add(chord, Nota(frec(monos(root + i), 4), size).data);
 			}
 		}
 

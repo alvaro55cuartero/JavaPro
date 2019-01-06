@@ -1,35 +1,49 @@
 package tools;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Binario {
 
 	public static void main(String[] args) {
 
-		String[] a = grupus(rellenar(toBin(GenInt(4096)), 12));
-		print(a);
+		// String[] a = grupus(rellenar(4096, 12));
+
+		String[][] s = grupos(rellenar(4096, 12));
+		// print(a, true);
 		// print(escalas(a, "100101010010"));
 	}
 
 	public static String[] grupus(String[] a) {
 
-		int cont = 0;
-		for (int i = 0; i < 13; i++) {
-			cont += eqPos(grupo(a, i)).length;
-		}
-		String[] b = new String[cont];
-		cont = 0;
+		ArrayList<String> lista = new ArrayList<String>();
+
 		for (int i = 0; i < 13; i++) {
 			String[] txt = eqPos(grupo(a, i));
 			for (int j = 0; j < txt.length; j++) {
-				b[cont] = txt[j];
-				cont++;
+				lista.add(txt[j]);
 			}
 		}
 
 		System.out.println("Grupus echo");
 
-		return b;
+		return lista.toArray(new String[0]);
+	}
+
+	public static Node<String> jerarquia(String root, String[][] grupos) {
+		Node<String> node = new Node<String>();
+		node.data = root;
+		int count = countAll(root, "1");
+		for(int i = count; i > 0; i--) {
+			int c = grupos[i].length;
+			for(int j = 0; j < c; j++) {
+				
+			}
+		}
+		
+		
+		return 
 	}
 
 	public static String[] escalas(String[] txt, String s) {
@@ -151,6 +165,15 @@ public class Binario {
 		return r;
 	}
 
+	public static String[] toBin(int a) {
+		String[] r = new String[a];
+		for (int i = 0; i < a; i++) {
+			r[i] = Integer.toBinaryString(i);
+		}
+		System.out.println("To Bin echo!");
+		return r;
+	}
+
 	public static String[] eqPos(String[] a) {
 		int c = 0;
 		boolean bool = true;
@@ -191,6 +214,8 @@ public class Binario {
 			}
 		}
 
+		print(s, true);
+
 		return s;
 	}
 
@@ -213,11 +238,27 @@ public class Binario {
 
 	// rellena con ceros a la izquierda hasta tener b cifras
 
+	public static String[] rellenar(int a, int b) {
+		String[] r = new String[a];
+		for (int i = 0; i < a; i++) {
+			String current = Integer.toBinaryString(i);
+			int dif = b - (current.length());
+			r[i] = current;
+			if (dif > 0) {
+				for (int j = 0; j < dif; j++) {
+					r[i] = "0" + r[i];
+				}
+			}
+		}
+		System.out.println("Rellenar echo!");
+		return r;
+	}
+
 	public static String[] rellenar(String[] a, int b) {
 		String[] r = new String[a.length];
 
 		for (int i = 0; i < a.length; i++) {
-			int dif = b - size(a[i]);
+			int dif = b - a[i].length();
 			r[i] = a[i];
 			if (dif > 0) {
 
@@ -230,53 +271,67 @@ public class Binario {
 		return r;
 	}
 
-	// devuelve un array con el numero de unos especificadopor el parametro b
+	// devuelve un array con String que contienen el numero de unos especificado por
+	// el parametro b
 
 	public static String[] grupo(String[] s, int a) {
-		int c = 0;
+		ArrayList<String> r = new ArrayList<String>();
 		for (int i = 0; i < s.length; i++) {
-			if (unos(s[i]) == a) {
-				c++;
-			}
-		}
-
-		String[] r = new String[c];
-		c = 0;
-		for (int i = 0; i < s.length; i++) {
-			if (unos(s[i]) == a) {
-				r[c] = s[i];
-				c++;
+			if (countAll(s[i], "1") == a) {
+				r.add(s[i]);
 			}
 		}
 		System.out.println("Grupo " + a + " echo!");
-		return r;
+		return r.toArray(new String[0]);
 	}
 
-	// cuenta el numero de un string
+	public static String[][] grupos(String[] s) {
+		int size = s[0].length();
+		ArrayList<String> sx = new ArrayList<String>(Arrays.asList(s));
+		ArrayList<String> temp = new ArrayList<String>();
+		String[][] r = new String[size][];
+		ArrayList<Integer> num = new ArrayList<Integer>();
 
-	public static int unos(String a) {
-		int c = 0;
-		for (int i = 0; i < a.length(); i++) {
-			if (a.charAt(i) == '1') {
-				c++;
+		for (int i = 0; i < size; i++) {
+			temp.clear();
+			num.clear();
+			for (int j = 0; j < sx.size(); j++) {
+				if (countAll(sx.get(j), "1") == i) {
+					temp.add(sx.get(j));
+					num.add(j);
+
+				}
 			}
-		}
-		return c;
-	}
+			for (int j = num.size() - 1; j > -1; j--) {
+				sx.remove(num.get(j).intValue());
+			}
 
-	public static int size(String a) {
-		int r = a.length();
+			r[i] = temp.toArray(new String[0]);
+		}
+
 		return r;
 	}
 
-	public static void print(int[] a) {
+	// cuenta el numero de veces que un String aparece en otro String
+
+	public static int countAll(String a, String b) {
+		return a.length() - a.replaceAll(b, "").length();
+	}
+
+	public static void print(int[] a, boolean b) {
 		for (int i = 0; i < a.length; i++) {
+			if (b) {
+				System.out.print(i + " ");
+			}
 			System.out.println("" + a[i]);
 		}
 	}
 
-	public static void print(String[] a) {
+	public static void print(String[] a, boolean b) {
 		for (int i = 0; i < a.length; i++) {
+			if (b) {
+				System.out.print(i + " ");
+			}
 			System.out.println(a[i]);
 		}
 	}
@@ -357,4 +412,9 @@ public class Binario {
 		return p;
 	}
 
+	public static class Node<T> {
+		private T data;
+		private Node<T> parent;
+		private List<Node<T>> children;
+	}
 }

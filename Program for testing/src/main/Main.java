@@ -43,7 +43,7 @@ public class Main {
 				delta--;
 			}
 
-			render();
+			// render();
 			frames++;
 
 			if (System.nanoTime() - refCont > NS_POR_SEGUNDO) {

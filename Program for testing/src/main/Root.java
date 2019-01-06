@@ -93,10 +93,14 @@ public class Root implements ActionListener {
 	}
 
 	public void tick() {
-		System.out.println();
+
 		if (prog) {
 			program.tick();
-
+		}
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 

@@ -95,7 +95,6 @@ public class ProTexto extends Program implements ActionListener {
 
 		m2.add(mi21);
 		m2.add(mi22);
-
 		menuBar.add(m1);
 		menuBar.add(m2);
 		panel.add(menuBar, BorderLayout.BEFORE_FIRST_LINE);

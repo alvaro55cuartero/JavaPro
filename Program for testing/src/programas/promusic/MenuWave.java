@@ -33,7 +33,6 @@ public class MenuWave extends JComponent {
 	}
 
 	public void rellenar() {
-		Nota.
 	}
 
 }
