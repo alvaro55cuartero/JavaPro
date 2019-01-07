@@ -2,7 +2,6 @@ package programas.prolector;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +10,6 @@ import java.math.BigInteger;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFileChooser;
 import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -28,19 +26,12 @@ public class ProLector extends Program implements ActionListener {
 	String txt;
 	File file;
 	JPanel panel;
-	JMenuBar bar;
 	JFileChooser fileChooser;
 	JTextPane area;
 	JScrollPane sp;
 
-	JMenu menu1;
-	JMenu menu2;
-	JMenu menu3;
-
-	JMenuItem mi11;
-	JMenuItem mi12;
-	JMenuItem mi13;
-	JMenuItem mi14;
+	JMenu m2;
+	JMenu m3;
 
 	JMenuItem mi21;
 	JMenuItem mi22;
@@ -56,14 +47,8 @@ public class ProLector extends Program implements ActionListener {
 	public ProLector() {
 		Ventana.getFrame().getContentPane().removeAll();
 		panel = new JPanel();
-		bar = new JMenuBar();
-		menu1 = new JMenu();
-		menu2 = new JMenu();
-		menu3 = new JMenu();
-		mi11 = new JMenuItem();
-		mi12 = new JMenuItem();
-		mi13 = new JMenuItem();
-		mi14 = new JMenuItem();
+		m2 = new JMenu();
+		m3 = new JMenu();
 		mi21 = new JMenuItem();
 		mi22 = new JMenuItem();
 		mi23 = new JMenuItem();
@@ -80,10 +65,6 @@ public class ProLector extends Program implements ActionListener {
 
 		area.setFont(area.getFont().deriveFont(size));
 
-		mi11.addActionListener(this);
-		mi12.addActionListener(this);
-		mi13.addActionListener(this);
-		mi14.addActionListener(this);
 		mi21.addActionListener(this);
 		mi22.addActionListener(this);
 		mi23.addActionListener(this);
@@ -92,14 +73,8 @@ public class ProLector extends Program implements ActionListener {
 		mi32.addActionListener(this);
 		mi33.addActionListener(this);
 
-		menu1.setText("File");
-		menu2.setText("Edit");
-		menu3.setText("Show");
-
-		mi11.setText("New");
-		mi12.setText("Open");
-		mi13.setText("Save");
-		mi14.setText("");
+		m2.setText("Edit");
+		m3.setText("Show");
 
 		mi21.setText("Zoom +");
 		mi22.setText("Zoom -");
@@ -110,20 +85,15 @@ public class ProLector extends Program implements ActionListener {
 		mi32.setText("ascii");
 		mi33.setText("Elf");
 
-		menu1.add(mi11);
-		menu1.add(mi12);
-		menu1.add(mi13);
-		menu1.add(mi14);
-		menu2.add(mi21);
-		menu2.add(mi22);
-		menu2.add(mi23);
-		menu2.add(mi24);
-		menu3.add(mi31);
-		menu3.add(mi32);
+		m2.add(mi21);
+		m2.add(mi22);
+		m2.add(mi23);
+		m2.add(mi24);
+		m3.add(mi31);
+		m3.add(mi32);
 
-		bar.add(menu1);
-		bar.add(menu2);
-		bar.add(menu3);
+		bar.add(m2);
+		bar.add(m3);
 
 		panel.setLayout(new BorderLayout());
 		panel.add(bar, BorderLayout.NORTH);
@@ -154,38 +124,7 @@ public class ProLector extends Program implements ActionListener {
 
 	}
 
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(mi11)) {
-		}
-		if (e.getSource().equals(mi12)) {
-			open();
-		}
-		if (e.getSource().equals(mi13)) {
-		}
-		if (e.getSource().equals(mi14)) {
-		}
-		if (e.getSource().equals(mi21)) {
-			size++;
-			area.setFont(area.getFont().deriveFont(size));
-			System.out.println(size);
-		}
-		if (e.getSource().equals(mi22)) {
-			size--;
-			area.setFont(area.getFont().deriveFont(size));
-		}
-		if (e.getSource().equals(mi23)) {
-		}
-		if (e.getSource().equals(mi24)) {
-		}
-		if (e.getSource().equals(mi31)) {
-
-		}
-		if (e.getSource().equals(mi31)) {
-
-		}
-	}
-
-	private void open() {
+	public void open() {
 		int r = fileChooser.showOpenDialog(null);
 		if (r == JFileChooser.APPROVE_OPTION) {
 			file = fileChooser.getSelectedFile();
@@ -212,5 +151,17 @@ public class ProLector extends Program implements ActionListener {
 				e1.printStackTrace();
 			}
 		}
+	}
+
+	public void new0() {
+
+	}
+
+	public void save() {
+
+	}
+
+	public void exit() {
+
 	}
 }

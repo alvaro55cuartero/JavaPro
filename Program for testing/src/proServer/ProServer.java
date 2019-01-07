@@ -1,8 +1,17 @@
-package programas.procircuit;
+package proServer;
+
+import javax.swing.JPanel;
 
 import main.Program;
+import main.Root;
 
-public class ProCircuit extends Program {
+public class ProServer extends Program {
+
+	JPanel panel = new JPanel();
+
+	public ProServer() {
+
+	}
 
 	public void start() {
 	}
@@ -29,6 +38,6 @@ public class ProCircuit extends Program {
 	}
 
 	public void exit() {
+		Root.reset();
 	}
-
 }

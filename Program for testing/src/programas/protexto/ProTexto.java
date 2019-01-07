@@ -29,13 +29,7 @@ public class ProTexto extends Program implements ActionListener {
 	JTextArea area;
 	JList<String> list;
 
-	JMenu m1;
 	JMenu m2;
-
-	JMenuItem mi11;
-	JMenuItem mi12;
-	JMenuItem mi13;
-	JMenuItem mi14;
 
 	JMenuItem mi21;
 	JMenuItem mi22;
@@ -55,13 +49,7 @@ public class ProTexto extends Program implements ActionListener {
 
 		list = new JList<String>(model);
 
-		m1 = new JMenu();
 		m2 = new JMenu();
-
-		mi11 = new JMenuItem();
-		mi12 = new JMenuItem();
-		mi13 = new JMenuItem();
-		mi14 = new JMenuItem();
 
 		mi21 = new JMenuItem();
 		mi22 = new JMenuItem();
@@ -69,33 +57,16 @@ public class ProTexto extends Program implements ActionListener {
 
 		panel.setLayout(new BorderLayout());
 
-		m1.setText("File");
 		m2.setText("Mode");
-
-		mi11.setText("New");
-		mi12.setText("Open");
-		mi13.setText("Guardar");
-		mi14.setText("Exit");
 
 		mi21.setText("Colectar");
 		mi22.setText("Frec");
 
-		mi11.addActionListener(this);
-		mi12.addActionListener(this);
-		mi13.addActionListener(this);
-		mi14.addActionListener(this);
-
 		mi21.addActionListener(this);
 		mi22.addActionListener(this);
 
-		m1.add(mi11);
-		m1.add(mi12);
-		m1.add(mi13);
-		m1.add(mi14);
-
 		m2.add(mi21);
 		m2.add(mi22);
-		menuBar.add(m1);
 		menuBar.add(m2);
 		panel.add(menuBar, BorderLayout.BEFORE_FIRST_LINE);
 		panel.add(area, BorderLayout.CENTER);
@@ -154,7 +125,7 @@ public class ProTexto extends Program implements ActionListener {
 			panel.removeAll();
 			panel.add(menuBar, BorderLayout.NORTH);
 			panel.add(area, BorderLayout.CENTER);
-			file = open();
+			file = chooser();
 			try {
 				area.setText(Lector.leerArchivoTexto(file.getPath()));
 			} catch (IOException e1) {
@@ -167,7 +138,7 @@ public class ProTexto extends Program implements ActionListener {
 				e1.printStackTrace();
 			}
 		} else if (e.getSource().equals(mi14)) {
-			Root.reset();
+
 		} else if (e.getSource().equals(mi21)) {
 
 			panel.removeAll();
@@ -180,7 +151,7 @@ public class ProTexto extends Program implements ActionListener {
 		}
 	}
 
-	private File open() {
+	private File chooser() {
 		JFileChooser fileChooser = new JFileChooser(new File("/"));
 		int r = fileChooser.showOpenDialog(null);
 		if (r == JFileChooser.APPROVE_OPTION) {
@@ -235,6 +206,19 @@ public class ProTexto extends Program implements ActionListener {
 			}
 		}
 		return false;
+	}
+
+	public void new0() {
+	}
+
+	public void open() {
+	}
+
+	public void save() {
+	}
+
+	public void exit() {
+		Root.reset();
 	}
 
 }

@@ -12,7 +12,6 @@ import java.util.Arrays;
 import javax.swing.JFileChooser;
 import javax.swing.JList;
 import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -26,16 +25,11 @@ public class ProLista extends Program implements ActionListener {
 
 	JPanel panel;
 
-	JMenu m1;
-
-	JMenuBar bar;
-
-	JMenuItem mi11;
-	JMenuItem mi12;
-	JMenuItem mi13;
-	JMenuItem mi14;
-
 	JTextArea ta;
+
+	JMenu m2;
+
+	JMenuItem mi21;
 
 	String ruta;
 
@@ -46,30 +40,16 @@ public class ProLista extends Program implements ActionListener {
 	public ProLista() {
 		Ventana.getFrame().getContentPane().removeAll();
 		panel = new JPanel();
-		m1 = new JMenu();
-		bar = new JMenuBar();
-		mi11 = new JMenuItem();
-		mi12 = new JMenuItem();
-		mi13 = new JMenuItem();
-		mi14 = new JMenuItem();
 
-		mi11.setText("Open");
-		mi11.addActionListener(this);
+		m2 = new JMenu();
 
-		mi12.setText("Sort");
-		mi12.addActionListener(this);
+		mi21 = new JMenuItem();
 
-		mi13.setText("Save");
-		mi13.addActionListener(this);
+		mi21.setText("Sort");
+		mi21.addActionListener(this);
 
-		mi14.setText("Add");
-		mi14.addActionListener(this);
-
-		m1.setText("File");
-		m1.add(mi11);
-		m1.add(mi12);
-		m1.add(mi13);
-		m1.add(mi14);
+		m2.setText("Edit");
+		m2.add(mi21);
 
 		bar.add(m1);
 
@@ -109,11 +89,7 @@ public class ProLista extends Program implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(mi11)) {
-			File file = open();
-			ruta = file.getPath();
-			procesadorTxt(ruta);
-		}
+
 		if (e.getSource().equals(mi12)) {
 			ListModel<String> a = list.getModel();
 			String[] b = new String[a.getSize()];
@@ -126,7 +102,7 @@ public class ProLista extends Program implements ActionListener {
 		}
 
 		if (e.getSource().equals(mi13)) {
-			File file = open();
+			File file = chooser();
 			ruta = file.getPath();
 
 			ListModel<String> a = list.getModel();
@@ -141,10 +117,6 @@ public class ProLista extends Program implements ActionListener {
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-		}
-
-		if (e.getSource().equals(mi14)) {
-
 		}
 	}
 
@@ -222,7 +194,7 @@ public class ProLista extends Program implements ActionListener {
 		}
 	}
 
-	private File open() {
+	private File chooser() {
 		JFileChooser fileChooser = new JFileChooser();
 		int r = fileChooser.showOpenDialog(null);
 		if (r == JFileChooser.APPROVE_OPTION) {
@@ -231,4 +203,18 @@ public class ProLista extends Program implements ActionListener {
 		return null;
 	}
 
+	public void new0() {
+	}
+
+	public void open() {
+		File file = chooser();
+		ruta = file.getPath();
+		procesadorTxt(ruta);
+	}
+
+	public void save() {
+	}
+
+	public void exit() {
+	}
 }

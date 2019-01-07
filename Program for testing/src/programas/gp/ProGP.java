@@ -28,13 +28,8 @@ public class ProGP extends Program implements Renderer, ActionListener {
 
 	JPanel panel;
 	JMenuBar bar;
-	JMenu m1;
-	JMenu m2;
 
-	JMenuItem mi11;
-	JMenuItem mi12;
-	JMenuItem mi13;
-	JMenuItem mi14;
+	JMenu m2;
 
 	JMenuItem mi21;
 	JMenuItem mi22;
@@ -44,30 +39,10 @@ public class ProGP extends Program implements Renderer, ActionListener {
 	public ProGP() {
 		Ventana.getFrame().getContentPane().removeAll();
 		panel = new JPanel();
-
 		bar = new JMenuBar();
-
-		m1 = new JMenu();
-		m1.setText("File");
 
 		m2 = new JMenu();
 		m2.setText("Edit");
-
-		mi11 = new JMenuItem();
-		mi11.setText("New");
-		mi11.addActionListener(this);
-
-		mi12 = new JMenuItem();
-		mi12.setText("Open");
-		mi12.addActionListener(this);
-
-		mi13 = new JMenuItem();
-		mi13.setText("Guardar");
-		mi13.addActionListener(this);
-
-		mi14 = new JMenuItem();
-		mi14.setText("Exit");
-		mi14.addActionListener(this);
 
 		mi21 = new JMenuItem();
 		mi21.setText("Block");
@@ -85,17 +60,11 @@ public class ProGP extends Program implements Renderer, ActionListener {
 		mi24.setText("Exit");
 		mi24.addActionListener(this);
 
-		m1.add(mi11);
-		m1.add(mi12);
-		m1.add(mi13);
-		m1.add(mi14);
-
 		m2.add(mi21);
 		m2.add(mi22);
 		m2.add(mi23);
 		m2.add(mi24);
 
-		bar.add(m1);
 		bar.add(m2);
 
 		panel.setBackground(Color.BLACK);
@@ -156,4 +125,15 @@ public class ProGP extends Program implements Renderer, ActionListener {
 
 	}
 
+	public void new0() {
+	}
+
+	public void open() {
+	}
+
+	public void save() {
+	}
+
+	public void exit() {
+	}
 }
